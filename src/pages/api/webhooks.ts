@@ -22,7 +22,6 @@ export const config = {
 
 const relevantEventsTypes = new Set([
   'checkout.session.completed',
-  // 'customer.subscription.created',
   'customer.subscription.updated',
   'customer.subscription.delted',
 ])
@@ -44,6 +43,8 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
     const { type } = event
 
     if(relevantEventsTypes.has(type)){
+      console.log("Entrou")
+      console.log(event)
       try {
         switch (type) {
           case 'checkout.session.completed':
@@ -56,8 +57,6 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
             )
 
             break;
-
-          // case 'customer.subscriptions.created':
           case 'customer.subscriptions.updated':
           case 'customer.subscriptions.delted':
             const subscription = event.data.object as Stripe.Subscription
@@ -65,12 +64,9 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
             await saveSubscription(
               subscription.id,
               subscription.customer.toString(),
-              // type === 'customer.subscriptions.created'
             )
-
-
-
             break;
+
           default:
             throw new Error('Unhandle event.')
         }
