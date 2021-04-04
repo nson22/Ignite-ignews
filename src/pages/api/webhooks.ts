@@ -43,8 +43,6 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
     const { type } = event
 
     if(relevantEventsTypes.has(type)){
-      console.log("Entrou")
-      console.log(event)
       try {
         switch (type) {
           case 'checkout.session.completed':
