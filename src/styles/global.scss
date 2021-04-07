@@ -1,3 +1,7 @@
+// Se o nome do arquivo estive com o module
+// significa que aquela estilização é exclusiva
+// para um único componente, para os estilos globais
+// o nome do arquivo não pode ter module
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +11,7 @@
 :root {
   --white: #ffffff;
 
-  --gray-100: #e1e1e6;
+  --gray-50: #e1e1e6;
   --gray-300: #a8a8b3;
   --gray-700: #323238;
   --gray-800: #29292e;
@@ -28,7 +32,7 @@ input,
 textarea,
 select,
 button {
-  font: 400 1rem 'Roboto', Arial, sans-serif;
+  font: 400 1rem 'Montserrat', sans-serif;
 }
 
 button {

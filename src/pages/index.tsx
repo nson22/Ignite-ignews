@@ -17,6 +17,8 @@ interface HomeProps {
 export default function Home({ product }: HomeProps) {
   return (
     <>
+      {/* <Head /> Necessário para que o título da página não fique repetindo,
+      cada página terá seu título */}
       <Head>
         <title>Home | ig.news</title>
       </Head>
@@ -24,9 +26,7 @@ export default function Home({ product }: HomeProps) {
       <main className={styles.contentContainer}>
         <section className={styles.hero}>
           <span>
-            <span role="img" aria-label="Clapping hands">
-              👏
-            </span>{' '}
+            <span role="img" aria-label="Clapping hands"> 👏 </span>
             Hey, Welcome
           </span>
           <h1>
